@@ -1,13 +1,30 @@
 <template>
   <div id="app">
-    <router-link to="newcomponent">newcomponent</router-link>
-  </div> 
+  <h1>Vue Select - Ajax</h1>
+  <v-select label="name" :filterable="false" :options="options" @search="onSearch">
+    <template slot="no-options">
+      type to search GitHub repositories..
+    </template>
+    <template slot="option" slot-scope="option">
+      <div class="d-center">
+         
+        {{ option.name.first }}
+        </div>
+    </template>
+    <template slot="selected-option" scope="option">
+      <div class="selected d-center">
+ 
+        {{ option.name.first }}
+      </div>
+    </template>
+  </v-select>
+</div> 
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  name: 'HelloWorld',
+  name: 'newcomponent',
   data () {
     return {
       options: []
